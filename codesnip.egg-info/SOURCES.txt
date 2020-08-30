@@ -1,0 +1,10 @@
+README.md
+setup.py
+codesnip.egg-info/PKG-INFO
+codesnip.egg-info/SOURCES.txt
+codesnip.egg-info/dependency_links.txt
+codesnip.egg-info/entry_points.txt
+codesnip.egg-info/requires.txt
+codesnip.egg-info/top_level.txt
+src/__init__.py
+src/codesnippet.py

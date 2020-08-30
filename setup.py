@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open('README.md') as file:
     long_description = file.read() 
@@ -9,7 +9,7 @@ REQUIREMENTS = ['pyperclip']
   
 # some more details 
 CLASSIFIERS = [ 
-    'Development Status :: 2 - Pre-Alpha',
+    'Development Status :: 4 - Beta',
     'Intended Audience :: Developers', 
     'Topic :: Utilities',
     'License :: OSI Approved :: MIT License',
@@ -27,22 +27,19 @@ CLASSIFIERS = [
   
 # calling the setup function  
 setup(name='codesnip',
-      version='0.0.2',
+      version='1.0.1',
       description='A small program for storing and managing your code snippets.',
       long_description=long_description,
       long_description_content_type='text/markdown',
       py_modules = ["codesnipp"],
-      package_dir = {'': 'src'},
-      entry_points ={
-          'console_scripts': [
-              'codesnippet = vibhu4gfg.gfg:main'
-          ]
+      entry_points = {
+      "console_scripts": ['codesnip = src.codesnippet:main']
       },
       url='https://github.com/sarveshbhatnagar/codesnip',
       author='Sarvesh Bhatnagar', 
       author_email='sarveshbhatnagar08@gmail.com', 
       license='MIT', 
-      packages=['codesnipp'],
+      packages=find_packages(),
       classifiers=CLASSIFIERS, 
       install_requires=REQUIREMENTS, 
       keywords='snippet management code save'
