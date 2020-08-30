@@ -3,7 +3,7 @@ from codesnipp import datahandler, folder
 import pyperclip
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="This Program lets you save and retrieve code snippets. To save a snippet first copy a code snippet and run -s command. To fetch snippet, use -f command and it will be copied to clipboard!")
     parser.add_argument('-s','--save',type=str,help="Saves your code snippet from clipboard along with the keys you pass. e.g. codesnippet -s 'Flutter database retrieve'")
     parser.add_argument('-f','--fetch',type=str,help="Fetches records from the database. e.g. codesnippet -f 'flutter database' or 'flutter retrieve database'")

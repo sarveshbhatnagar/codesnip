@@ -1,17 +1,17 @@
 Metadata-Version: 2.1
 Name: codesnip
-Version: 0.0.1
+Version: 0.0.2
 Summary: A small program for storing and managing your code snippets.
-Home-page: UNKNOWN
+Home-page: https://github.com/sarveshbhatnagar/codesnip
 Author: Sarvesh Bhatnagar
 Author-email: sarveshbhatnagar08@gmail.com
 License: MIT
 Description: UNKNOWN
 Keywords: snippet management code save
 Platform: UNKNOWN
-Classifier: Development Status :: 1 - Beta
+Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Intended Audience :: Developers
-Classifier: Topic :: Snippet Management
+Classifier: Topic :: Utilities
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 2

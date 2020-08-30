@@ -9,10 +9,10 @@ REQUIREMENTS = ['pyperclip']
   
 # some more details 
 CLASSIFIERS = [ 
-    'Development Status :: 1 - Beta', 
+    'Development Status :: 2 - Pre-Alpha',
     'Intended Audience :: Developers', 
-    'Topic :: Snippet Management', 
-    'License :: OSI Approved :: MIT License', 
+    'Topic :: Utilities',
+    'License :: OSI Approved :: MIT License',
     'Programming Language :: Python', 
     'Programming Language :: Python :: 2', 
     'Programming Language :: Python :: 2.6', 
@@ -27,7 +27,7 @@ CLASSIFIERS = [
   
 # calling the setup function  
 setup(name='codesnip',
-      version='0.0.1',
+      version='0.0.2',
       description='A small program for storing and managing your code snippets.',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -38,6 +38,7 @@ setup(name='codesnip',
               'codesnippet = vibhu4gfg.gfg:main'
           ]
       },
+      url='https://github.com/sarveshbhatnagar/codesnip',
       author='Sarvesh Bhatnagar', 
       author_email='sarveshbhatnagar08@gmail.com', 
       license='MIT', 
