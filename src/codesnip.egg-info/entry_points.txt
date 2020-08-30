@@ -1,0 +1,3 @@
+[console_scripts]
+codesnippet = vibhu4gfg.gfg:main
+

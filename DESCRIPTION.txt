@@ -1,0 +1,35 @@
+mycodesnips
+======
+
+A simple python tool for managing your code snippets.
+Use it to save and retrieve snippets.
+
+Installation
+------------
+
+Fast install:
+
+::
+
+    pip install mycodesnips
+
+For a manual install get this package:
+
+::
+
+    wget https://github.com/sarveshbhatnagar/mycodesnips
+    unzip master.zip
+    rm master.zip
+    cd mycodesnips-master
+
+Install the package:
+
+::
+
+    python setup.py install    
+
+Example
+--------
+
+.. code:: python
+
