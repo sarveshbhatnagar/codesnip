@@ -223,9 +223,10 @@ def main():
     parser.add_argument('-p','--printfolders',help='Used to print all the available folders',action='store_true',default=False)
     #TODO add import
     parser.add_argument('-i','--importfile',type=str,help="Imports the datafilestore_codesnip file from the passed location. (Appends instead of resetting)")
+    parser.add_argument('-ic','--importcwd',help="Imports datafile from current working directory.",action='store_true',default=False)
     parser.add_argument('-e','--exportfile',help="Exports file at current working directory for you to backup and share.",action='store_true',default=False)
     args = parser.parse_args()
-    myfilepath = os.path.join(os.path.dirname(os.__file__),'datafilestore_codesnip')
+    myfilepath = os.path.join(os.path.dirname(__file__),'datafilestore_codesnip')
     dhobj = DataHandler(Folder(),myfilepath)
     if(args.save):
         lis = args.save.split(' ')
@@ -243,30 +244,36 @@ def main():
         dhobj.handleDelete(lis[0],lis[1:])
     elif args.printfolders:
         dhobj.handlePrint()
-        print(os.path.realpath(__file__))
-        # print('Will be soon functional.')
-        # print(os.path.dirname(folder.__file__))
     elif args.importfile:
-        print('Will be implemented soon...')
+        print('Will be implemented soon... use -ic for current directory.')
+    elif args.importcwd:
+        DataHandler(Folder(),os.path.join(os.path.dirname(__file__),'datafilestore_codesnip')).handleImport(os.path.join(os.getcwd(),'datafilestore_codesnip'))
     elif args.exportfile:
         filepath = os.getcwd()
         fetchfile = dhobj.autofetch()
         print('Exporting to {0}...'.format(filepath))
-        dhobj.saveFile(fetchfile,os.path.join(filepath,'codesnipdata'))
+        dhobj.saveFile(fetchfile,os.path.join(filepath,'datafilestore_codesnip'))
         print('Export successful.')
 
         #TODO Create save data in datahandler
     else:
         print("""\
+NOTE: Before you update, remember to export the data and after update, import the data.
 Please use either -s command to save code snippet or -f command to fetch code snippet
 Use -d command to delete a code snippet from saved snippets. 
 Use -p command to print all the available folders.
+Use -e to export to current working directory.
+Use -i to import from specific path
+Use -ic to import from current directory. filename should be datafilestore_codesnip.
 
 Usage: 
     codesnip -s '[FOLDER_NAME [KEY STRING]'
     codesnip -f '[FOLDER_NAME] [ANY KEY]'
     codesnip -d '[FOLDER_NAME [ANY KEY]'
     codesnip -p
+    codesnip -e
+    codesnip -i 'PATH TO CODESNIP DATA'
+    codesnip -ic
         
 e.g. 
     codesnippet -s 'flutter save to database'
