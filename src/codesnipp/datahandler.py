@@ -1,17 +1,31 @@
-from codesnipp import data
-import pyperclip
+import pyperclip,pickle
+import os
 
-class DataHandler(data.DataStore):
-    def __init__(self,object):
-        super().__init__()
-        self.object = object
+class DataHandler:
+    # path = os.path.join(data.__file__,'newstoredfile')
+    def __init__(self,objectp,fpath):
+        self.object = objectp
+        self.fpath = fpath
+
+    
+    def ces(self):
+        print('Updated')
+
+    def saveFile(self,obj,p):
+        with open(p,'wb') as f:
+            pickle.dump(obj, f)
+
+    def readFile(self,p):
+        with open(p,'rb') as f:
+            x = pickle.loads(f.read())
+        return x
 
     def autofetch(self):
         """
         safely read file from database
         """
         try:
-            return self.readFile()
+            return self.readFile(self.fpath)
         except Exception:
             return dict()
     
@@ -29,7 +43,7 @@ class DataHandler(data.DataStore):
             loadedsnippets[self.object.name].append(self.object)
 
             print('Attempting to save...')
-            self.saveFile(loadedsnippets)
+            self.saveFile(loadedsnippets,self.fpath)
 
             print('Code snippet successfully saved.')
 
@@ -38,7 +52,7 @@ class DataHandler(data.DataStore):
             loadedsnippets[self.object.name] = [self.object,]
 
             print('Attempting to save...')
-            self.saveFile(loadedsnippets)
+            self.saveFile(loadedsnippets,self.fpath)
 
             print('Code snippet successfully saved.')
 
@@ -130,7 +144,7 @@ class DataHandler(data.DataStore):
                 delselection = self.handleMultipleList(lis,'deleterecord')
                 items.remove(delselection)
                 loadedsnippets[folder] = items
-                self.saveFile(loadedsnippets)
+                self.saveFile(loadedsnippets,self.fpath)
                 print('Snippet Deleted!')
             else:
                 print('No Snippet found')

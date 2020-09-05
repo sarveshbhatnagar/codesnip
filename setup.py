@@ -27,7 +27,7 @@ CLASSIFIERS = [
   
 # calling the setup function  
 setup(name='codesnip',
-      version='1.0.1',
+      version='1.0.5',
       description='A small program for storing and managing your code snippets.',
       long_description=long_description,
       long_description_content_type='text/markdown',
